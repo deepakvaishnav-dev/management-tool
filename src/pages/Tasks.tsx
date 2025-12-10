@@ -43,12 +43,6 @@ import { useStore } from "@/store/useStore";
 import type { Task } from "@/store/useStore";
 import { toast } from "@/hooks/use-toast";
 
-const statusColors = {
-  todo: "bg-muted text-muted-foreground",
-  "in-progress": "bg-accent/20 text-accent",
-  completed: "bg-success/20 text-success",
-};
-
 const priorityColors = {
   low: "bg-muted text-muted-foreground",
   medium: "bg-warning/20 text-warning",

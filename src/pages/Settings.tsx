@@ -1,21 +1,30 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { User, Moon, Sun, Shield, Bell } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
-import { Separator } from '@/components/ui/separator';
-import { useStore } from '@/store/useStore';
-import { toast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { User, Moon, Sun, Shield, Bell } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
+import { useStore } from "@/store/useStore";
+import { toast } from "@/hooks/use-toast";
 
 const profileSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name must be less than 50 characters'),
-  email: z.string().email('Please enter a valid email'),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must be less than 50 characters"),
+  email: z.string().email("Please enter a valid email"),
 });
 
 type ProfileForm = z.infer<typeof profileSchema>;
@@ -24,13 +33,13 @@ const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 export default function Settings() {
@@ -44,14 +53,17 @@ export default function Settings() {
   } = useForm<ProfileForm>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      name: user?.name || '',
-      email: user?.email || '',
+      name: user?.name || "",
+      email: user?.email || "",
     },
   });
 
-  const onSubmit = (data: ProfileForm) => {
-    // In a real app, this would update the user profile
-    toast({ title: 'Profile updated', description: 'Your profile has been saved successfully.' });
+  const onSubmit = () => {
+    
+    toast({
+      title: "Profile updated",
+      description: "Your profile has been saved successfully.",
+    });
   };
 
   return (
@@ -77,20 +89,20 @@ export default function Settings() {
               <User className="h-5 w-5 text-primary" />
               Profile
             </CardTitle>
-            <CardDescription>
-              Update your personal information
-            </CardDescription>
+            <CardDescription>Update your personal information</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="flex items-center gap-6">
                 <div className="h-20 w-20 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
                   <span className="text-3xl font-bold text-primary-foreground">
-                    {user?.name?.charAt(0).toUpperCase() || 'U'}
+                    {user?.name?.charAt(0).toUpperCase() || "U"}
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-semibold text-foreground">{user?.name}</h3>
+                  <h3 className="font-semibold text-foreground">
+                    {user?.name}
+                  </h3>
                   <p className="text-sm text-muted-foreground">{user?.email}</p>
                 </div>
               </div>
@@ -103,10 +115,12 @@ export default function Settings() {
                   <Input
                     id="name"
                     placeholder="Your name"
-                    {...register('name')}
+                    {...register("name")}
                   />
                   {errors.name && (
-                    <p className="text-sm text-destructive">{errors.name.message}</p>
+                    <p className="text-sm text-destructive">
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
 
@@ -116,10 +130,12 @@ export default function Settings() {
                     id="email"
                     type="email"
                     placeholder="Your email"
-                    {...register('email')}
+                    {...register("email")}
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive">{errors.email.message}</p>
+                    <p className="text-sm text-destructive">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
               </div>
@@ -137,7 +153,7 @@ export default function Settings() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              {theme === 'light' ? (
+              {theme === "light" ? (
                 <Sun className="h-5 w-5 text-accent" />
               ) : (
                 <Moon className="h-5 w-5 text-primary" />
@@ -157,7 +173,7 @@ export default function Settings() {
                 </p>
               </div>
               <Switch
-                checked={theme === 'dark'}
+                checked={theme === "dark"}
                 onCheckedChange={toggleTheme}
               />
             </div>
@@ -202,9 +218,7 @@ export default function Settings() {
               <Shield className="h-5 w-5 text-success" />
               Privacy & Security
             </CardTitle>
-            <CardDescription>
-              Manage your account security
-            </CardDescription>
+            <CardDescription>Manage your account security</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
@@ -221,7 +235,9 @@ export default function Settings() {
             <Separator />
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
-                <Label className="text-base text-destructive">Delete Account</Label>
+                <Label className="text-base text-destructive">
+                  Delete Account
+                </Label>
                 <p className="text-sm text-muted-foreground">
                   Permanently delete your account and all data
                 </p>

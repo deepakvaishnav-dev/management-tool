@@ -7,7 +7,7 @@ import { useStore } from "@/store/useStore";
 export function MainLayout() {
   const { user } = useStore();
   const navigate = useNavigate();
-  const [sidebarWidth, setSidebarWidth] = useState(280);
+  const [sidebarWidth] = useState(280);
 
   useEffect(() => {
     if (!user) {
