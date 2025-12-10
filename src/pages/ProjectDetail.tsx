@@ -371,7 +371,7 @@ export default function ProjectDetail() {
                             task.status === "completed" ? "todo" : "completed"
                           )
                         }
-                        className={`mt-1 h-5 w-5 rounded-full border-2 flex-shrink-0 transition-all ${
+                        className={`mt-1 h-5 w-5 rounded-full border-2 shrink-0 transition-all ${
                           task.status === "completed"
                             ? "bg-success border-success"
                             : "border-muted-foreground hover:border-primary"
@@ -405,7 +405,7 @@ export default function ProjectDetail() {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                                className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
                               >
                                 <MoreHorizontal className="h-4 w-4" />
                               </Button>

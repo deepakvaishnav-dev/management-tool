@@ -232,7 +232,7 @@ export default function Dashboard() {
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div 
-                            className="h-2 w-2 rounded-full flex-shrink-0"
+                            className="h-2 w-2 rounded-full shrink-0"
                             style={{ backgroundColor: project?.color || 'hsl(var(--primary))' }}
                           />
                           <div className="min-w-0">
@@ -240,7 +240,7 @@ export default function Dashboard() {
                             <p className="text-xs text-muted-foreground truncate">{project?.name}</p>
                           </div>
                         </div>
-                        <span className="text-xs text-muted-foreground flex-shrink-0 ml-2">
+                        <span className="text-xs text-muted-foreground shrink-0 ml-2">
                           {format(new Date(task.dueDate), 'MMM d')}
                         </span>
                       </div>
