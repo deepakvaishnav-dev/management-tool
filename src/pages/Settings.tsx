@@ -94,7 +94,7 @@ export default function Settings() {
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="flex items-center gap-6">
-                <div className="h-20 w-20 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
+                <div className="h-20 w-20 rounded-full gradient-primary flex items-center justify-center shrink-0">
                   <span className="text-3xl font-bold text-primary-foreground">
                     {user?.name?.charAt(0).toUpperCase() || "U"}
                   </span>

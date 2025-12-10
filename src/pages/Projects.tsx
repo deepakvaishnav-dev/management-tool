@@ -233,7 +233,7 @@ export default function Projects() {
                           className="flex items-center gap-3 min-w-0 flex-1"
                         >
                           <div
-                            className="h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            className="h-12 w-12 rounded-xl flex items-center justify-center shrink-0"
                             style={{ backgroundColor: project.color + "20" }}
                           >
                             <FolderKanban
