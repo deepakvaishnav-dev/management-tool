@@ -129,7 +129,7 @@ export default function Tasks() {
     >
       {/* Header */}
       <motion.div variants={itemVariants}>
-        <h1 className="text-3xl font-bold text-foreground">All Tasks</h1>
+        <h1 className="text-3xl font-bold text-foreground backdrop-blur-lg">All Tasks</h1>
         <p className="text-muted-foreground mt-1">
           View and manage all tasks across your projects
         </p>
